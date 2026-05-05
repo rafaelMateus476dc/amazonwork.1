@@ -11,33 +11,46 @@ if (nome) {
 
 // criar post
 function criarPost() {
-  const input = document.getElementById("postTexto");
-  const texto = input.value.trim();
+  const texto = document.getElementById("postTexto").value.trim();
+  const fileInput = document.getElementById("imagem");
+  const file = fileInput.files[0];
 
-  if (!texto) return;
+  if (!texto && !file) return;
 
   const usuario = localStorage.getItem("usuario");
 
-  let posts = JSON.parse(localStorage.getItem("posts")) || [];
+  const reader = new FileReader();
 
-  posts.push({
-    user: usuario,
-    texto: texto,
-    likes: 0,
-    likedBy: []
-  });
+  reader.onload = function () {
+    const imagemBase64 = reader.result;
 
-  localStorage.setItem("posts", JSON.stringify(posts));
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-  input.value = "";
+    posts.push({
+      user: usuario,
+      texto: texto,
+      imagem: imagemBase64
+    });
 
-  mostrarPosts();
+    localStorage.setItem("posts", JSON.stringify(posts));
+
+    document.getElementById("postTexto").value = "";
+    fileInput.value = "";
+
+    mostrarPosts();
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    reader.onload(); // post só texto
+  }
 }
 
 // mostrar posts
 function mostrarPosts() {
-  const lista = document.getElementById("posts");
-  lista.innerHTML = "";
+  const feed = document.getElementById("posts");
+  feed.innerHTML = "";
 
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
   const usuario = localStorage.getItem("usuario");
@@ -45,25 +58,27 @@ function mostrarPosts() {
   posts.reverse().forEach((p, index) => {
     const realIndex = posts.length - 1 - index;
 
-    const jaCurtiu = p.likedBy.includes(usuario);
+    const jaCurtiu = p.likedBy?.includes(usuario);
 
     const div = document.createElement("div");
     div.className = "post";
 
     div.innerHTML = `
-      <strong>${p.user}:</strong> ${p.texto}
+      <strong>${p.user}</strong>
+      <p>${p.texto}</p>
+
+      ${p.imagem ? `<img src="${p.imagem}" class="post-img">` : ""}
+
       <br>
-      <button onclick="curtirPost(${realIndex})" 
+      <button onclick="curtirPost(${realIndex})"
         ${jaCurtiu ? "disabled" : ""}>
-        ❤️ ${p.likes} ${jaCurtiu ? "(curtido)" : ""}
+        ❤️ ${p.likes || 0}
       </button>
     `;
 
-    lista.appendChild(div);
+    feed.appendChild(div);
   });
 }
-
-mostrarPosts();
 
 // logout
 function logout() {
