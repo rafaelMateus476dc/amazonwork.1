@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>AmazonWork</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+
+  <!-- TOPO -->
+  <header class="topo">
+    <h2>AmazonWork</h2>
+    <input type="text" placeholder="Buscar...">
+  </header>
+
+  <h3 id="nomeUsuario"></h3>
+
+  <div class="container">
+
+    <!-- PERFIL -->
+    <aside class="perfil">
+      <h3>Seu Nome</h3>
+      <p>Área: Desenvolvimento</p>
+      <p>Grupo: LGBTQIA+/AfroBlack</p>
+
+      <button onclick="logout()">Sair</button>
+    </aside>
+
+    <!-- FEED -->
+    <main class="feed">
+      <textarea id="postTexto" placeholder="Compartilhe algo..."></textarea>
+  <button onclick="criarPost()">Publicar</button>
+
+      <div id="posts"></div>
+    </main>
+
+    <!-- VAGAS -->
+    <aside class="vagas">
+      <h3>Vagas Recomendadas</h3>
+
+      <div class="vaga">
+        <p><strong>Dev Front-End</strong></p>
+        <p>Empresa X</p>
+      </div>
+
+      <div class="vaga">
+        <p><strong>UX Designer</strong></p>
+        <p>Startup Y</p>
+      </div>
+    </aside>
+
+  </div>
+
+
+<div id="feed"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

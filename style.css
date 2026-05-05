@@ -1,0 +1,241 @@
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #bbf5b9;
+}
+
+/* ===== LOGIN ===== Colocar tudo verde*/
+body.login-page {
+  background: linear-gradient(135deg, #1b8b46, #22b14d);
+  height: 100vh;
+  display: flex;
+  justify-content: center;   /* 👈 CENTRALIZA HORIZONTAL */
+  align-items: center;       /* 👈 CENTRALIZA VERTICAL */
+}
+
+/* Caixa de login */
+.login-container {
+  background: white;
+  padding: 40px;
+  width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.login-container input,
+.login-container select {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.3s;
+}
+
+.login-container input:focus,
+.login-container select:focus {
+  border-color: #285333;
+  box-shadow: 0 0 5px rgba(37,117,252,0.3);
+}
+
+/* Botão */
+.login-container button {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #288d47, #11664a);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== APP ===== */
+
+/* Topo */
+.topo {
+  background: linear-gradient(135deg, #288d47, #11664a);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topo input {
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Cards padrão */
+.perfil,
+.vaga,
+#posts div {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Perfil */
+.perfil {
+  width: 20%;
+}
+
+/* Feed */
+.feed {
+  width: 50%;
+}
+
+.feed textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  resize: none;
+}
+
+.feed button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  background: #145730;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.feed button:hover {
+  background: #2de91c;
+}
+
+/* Vagas */
+.vagas {
+  width: 30%;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  body.login-page {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .perfil,
+  .feed,
+  .vagas {
+    width: 100%;
+  }
+}
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.texto {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.texto p {
+  margin-top: 10px;
+}
+
+.texto {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  max-width: 400px; 
+}
+
+.descricao {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 20px;
+}
+
+.dark {
+  background: #111;
+  color: white;
+}
+
+.post-box textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.post {
+  background: #f1f1f1;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.post button {
+  margin-top: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+

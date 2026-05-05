@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     
+  <div class="texto">
+  <h1>Desenvolva seus métodos</h1>
+  <p>
+    O mundo precisa de profissionais competentes, essa pode ser sua oportunidade com 
+    <strong>AmazonWork</strong>
+  </p>
+</div>
+     
+  <div class="login-container">
+    <h2>Bem-vindo 👋</h2>
+    <p class="subtitulo">Entre na sua conta</p>
+  
+<img src="multi-ethnic-hands-raised-air-political-protest-concept-d-rendering.jpg" alt="">
+
+   
+    <input type="text" id="username" placeholder="Usuário">
+    <input type="password" id="password" placeholder="Senha">
+    <button onclick="verSenha()">👁</button>
+
+    
+    
+<label for="genero">Gênero:</label>
+
+<select id="genero">
+  <option value="">Prefiro não informar</option>
+  <option value="masculino">Masculino</option>
+  <option value="feminino">Feminino</option>
+  <option value="nao-binario">Não-binário</option>
+  <option value="outro">Outro</option>
+</select>
+
+<input type="text" id="outroGenero" placeholder="Especifique" style="display:none;">
+
+    <button onclick="login()">Entrar</button>
+
+
+    
+    <p id="erro"></p>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
